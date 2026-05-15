@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nayakulu RM Auto Fill TG+AP
 // @namespace    thecircleapp.in
-// @version      2.0.0
+// @version      2.2
 // @description  Real Select2 role selection + RM text extraction + free text autofill
 // @match        https://www.thecircleapp.in/admin/user_roles/new
 // @match        https://www.thecircleapp.in/admin/user_roles/*/edit
@@ -402,27 +402,38 @@
 
   function fillTextarea(textarea, text) {
 
-    if (!text) {
-      log('No text to inject');
-      return;
-    }
-
-    log('Injecting text');
-
-    textarea.focus();
-    textarea.value = text;
-    textarea.setAttribute('value', text);
-
-    textarea.dispatchEvent(
-      new Event('input', { bubbles: true })
-    );
-
-    textarea.dispatchEvent(
-      new Event('change', { bubbles: true })
-    );
-
-    textarea.blur();
+  if (!text) {
+    log('No text to inject');
+    return;
   }
+
+  // remove commas only
+  const cleaned = text
+  .replace(/\s*,\s*/g, ' ') // normalize commas to single space
+  .replace(/\s+/g, ' ') // remove double/multiple spaces
+  .trim();
+
+  log('Injecting cleaned text:', cleaned);
+
+  textarea.focus();
+
+  textarea.value = cleaned;
+
+  textarea.setAttribute(
+    'value',
+    cleaned
+  );
+
+  textarea.dispatchEvent(
+    new Event('input', { bubbles: true })
+  );
+
+  textarea.dispatchEvent(
+    new Event('change', { bubbles: true })
+  );
+
+  textarea.blur();
+}
 
   function checkSelfClaimed() {
 
