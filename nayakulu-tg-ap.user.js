@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nayakulu RM Auto Fill TG+AP
 // @namespace    thecircleapp.in
-// @version      2.3
+// @version      2.4
 // @description  Real Select2 role selection + RM text extraction + free text autofill
 // @match        https://www.thecircleapp.in/admin/user_roles/new
 // @match        https://www.thecircleapp.in/admin/user_roles/*/edit
@@ -647,8 +647,8 @@ const categories = [
 
         parentCircleId: '31406',
 
-        iconKeyword: 'janasena',
-        iconMatch: 'janasena WHITE'
+        iconKeyword: 'JANASENA',
+        iconMatch: 'JANASENA WHITE'
       },
 
       {
@@ -742,8 +742,8 @@ const categories = [
 
         parentCircleId: '31406',
 
-        iconKeyword: 'jsp',
-        iconMatch: 'JSP WHITE'
+        iconKeyword: 'JANASENA',
+        iconMatch: 'JANASENA WHITE'
       },
 
       {
