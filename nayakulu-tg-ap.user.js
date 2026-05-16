@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nayakulu RM Auto Fill TG+AP
 // @namespace    thecircleapp.in
-// @version      2.4
+// @version      2.5
 // @description  Real Select2 role selection + RM text extraction + free text autofill
 // @match        https://www.thecircleapp.in/admin/user_roles/new
 // @match        https://www.thecircleapp.in/admin/user_roles/*/edit
@@ -519,7 +519,7 @@ async function applyParentCircle() {
 
       log('=== START ===');
 
-const startTime = performance.now();
+
 
       // 1. open dropdown
       openSelect2();
@@ -583,19 +583,8 @@ await sleep(300);
 
 submitUserRole();
 
-const endTime = performance.now();
+log('=== COMPLETE ===');
 
-const seconds =
-  ((endTime - startTime) / 1000)
-    .toFixed(2);
-
-log(
-  `=== COMPLETE (${seconds}s) ===`
-);
-
-alert(
-  `Automation completed in ${seconds}s`
-);
 
     } catch (err) {
 
