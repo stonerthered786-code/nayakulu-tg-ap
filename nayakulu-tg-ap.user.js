@@ -409,10 +409,10 @@
 
   // remove commas only
   const cleaned = text
-  .replace(/\s*,\s*/g, ' ') // normalize commas to single space
-  .replace(/\s+/g, ' ') // remove double/multiple spaces
+  .replace(/[^\p{L}\p{N}\s]/gu, '')
+  .replace(/\s+/g, ' ')
   .trim();
-
+    
   log('Injecting cleaned text:', cleaned);
 
   textarea.focus();
@@ -680,8 +680,8 @@ const categories = [
 
         parentCircleId: '31401',
 
-        iconKeyword: 'congress tg',
-        iconMatch: 'CONGRESS TG WHITE'
+        iconKeyword: 'INC tg',
+        iconMatch: 'INC TG WHITE'
       },
 
       {
@@ -691,8 +691,8 @@ const categories = [
 
         parentCircleId: '37967',
 
-        iconKeyword: 'congress ap',
-        iconMatch: 'CONGRESS AP WHITE'
+        iconKeyword: 'INC ap',
+        iconMatch: 'INC AP WHITE'
       }
 
     ]
